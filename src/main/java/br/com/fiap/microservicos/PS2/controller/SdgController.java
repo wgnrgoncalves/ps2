@@ -10,7 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,13 +20,17 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.fiap.microservicos.PS2.dto.SdgDto;
 import br.com.fiap.microservicos.PS2.model.Sdg;
 import br.com.fiap.microservicos.PS2.service.SdgService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
+@Api(value = "SdgController")
 public class SdgController {
 
 	@Autowired
 	private SdgService service;
 	
+	@ApiOperation(value = "Salva medição de Ph")
 	@PostMapping("/api/v1/sdg")
 	public ResponseEntity<Sdg> salvaSdg(@RequestBody @Valid SdgDto sdgDto){
 		
@@ -36,11 +42,28 @@ public class SdgController {
 		return new ResponseEntity<Sdg>(sdg, HttpStatus.OK);
 		
 	}
-	
+
+//	@ApiOperation(value = "Salva medição de Ph")
+//	@PostMapping("/api/v1/sdg")
+//	public ResponseEntity<Sdg> getById(@PathVariable String id){
+//		
+//		
+//		
+//		return service.getById(id).;
+//		
+//		
+//		
+//	}
 	@GetMapping("/api/v1/sdg")
-	public List<Sdg> List(){		
-		//return service.listSdg();
-	//}
-		return null;
+	public List<Sdg> Lista(){		
+		
+		return service.lista();
 	}
+	
+	/*
+	 * @PutMapping("/api/vi/sdg/{id}") public ResponseEntity<Sdg>
+	 * editaSdg(@RequestBody @Valid SdgDto sdgDto){
+	 * 
+	 * }
+	 */
 }

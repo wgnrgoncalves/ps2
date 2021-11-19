@@ -71,7 +71,7 @@ public class Sdg {
 
 	
 	public double getWaterPhReport() {
-		return this.waterPh * 100 / 14;
+		return this.waterPh * 100 / 14 / 100;
 	}
 
 	

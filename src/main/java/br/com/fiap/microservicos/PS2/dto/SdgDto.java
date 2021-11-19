@@ -64,7 +64,5 @@ public class SdgDto {
 	}
 
 	
-	public double getWaterPhReport() {
-		return this.waterPh * 100 / 14;
-	}
+	
 }
