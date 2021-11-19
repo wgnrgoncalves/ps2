@@ -1,7 +1,6 @@
 package br.com.fiap.microservicos.PS2.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import br.com.fiap.microservicos.PS2.dto.SdgDto;
 import br.com.fiap.microservicos.PS2.model.Sdg;
@@ -35,5 +35,12 @@ public class SdgController {
 		
 		return new ResponseEntity<Sdg>(sdg, HttpStatus.OK);
 		
+	}
+	
+	@GetMapping("/api/v1/sdg")
+	public List<Sdg> List(){		
+		//return service.listSdg();
+	//}
+		return null;
 	}
 }

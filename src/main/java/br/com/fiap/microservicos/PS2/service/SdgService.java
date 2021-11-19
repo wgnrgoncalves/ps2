@@ -14,4 +14,5 @@ public class SdgService {
 	public Sdg salva(Sdg sdg) {
 		return sdgRepository.save(sdg);
 	}
+
 }
