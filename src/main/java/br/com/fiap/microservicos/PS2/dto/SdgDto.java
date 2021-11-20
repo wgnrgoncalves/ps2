@@ -1,15 +1,32 @@
 package br.com.fiap.microservicos.PS2.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
 
 public class SdgDto {
 
 	@Id
 	private String id;
+	
+	@NotNull
+	@NotBlank
 	private String title;
 	private boolean isFinished;
+	
+	@NotNull
+	@NotBlank
 	private String country;
+	
+	@NotNull
+	@NotBlank
+	@Length(min = 4, max = 4)
 	private String date;
+	
+	@Range(min= 0, max= 14)
 	private double waterPh;
 	
 	
@@ -22,6 +39,7 @@ public class SdgDto {
 	public void setId(String id) {
 		this.id = id;
 	}
+
 
 	public String getTitle() {
 		return title;
